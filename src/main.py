@@ -1,5 +1,5 @@
-import sys, os
-import zlib
+# import sys, os
+# import zlib
 # from Crypto.Cipher import AES
 import sys
 from os import listdir
@@ -15,6 +15,8 @@ Ui_MainWindow, QtBaseClass = uic.loadUiType("ebook-breaker.ui")
 
 
 class MyWindow(QMainWindow, Ui_MainWindow):
+    docpath = ""
+
     def __init__(self):
         super().__init__()
         QMainWindow.__init__(self)
@@ -23,41 +25,27 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         self.pushButton_3.clicked.connect(self.getPath)
 
     def getPath(self):
-        #fname = QFileDialog.getOpenFileName(self)
-        #fname = QFileDialog.getOpenFileNames(self)
+        # fname = QFileDialog.getOpenFileName(self)
+        # fname = QFileDialog.getOpenFileNames(self)
         mypath = QFileDialog.getExistingDirectory(self)
 
         f = []
+        d1 = []
+        d2 = []
+        self.docpath = mypath
         for (dirpath, dirnames, filenames) in walk(mypath):
             f.extend(filenames)
- #           self.listView.addItem(filenames)
-            break
+            # d1.extend(dirpath)
+            # d2.extend(dirnames) #하위폴더 탐색 필요
+            # self.listWidget.addItem("aaa")
 
-        print(f)
+        for (filename) in f:
+            self.listWidget.addItem(filename)
 
-# self.listView = QtGui.QListView(Dialog)
-# self.listView.setObjectName(_fromUtf8("listView"))
-# entries = ['one','two', 'three']
-# model = QtGui.QStandardItemModel()
-# self.listView.setModel(model)
-# for i in entries:
-#     item = QtGui.QStandardItem(i)
-#     model.appendRow(item)
-# self.gridLayout.addWidget(self.listView, 1, 0, 1, 2)
-#
-# QListWidget
-#
-# self.listwidget = QtGui.QListWidget(Dialog)
-#
-# entries = ['one','two', 'three']
-#
-# self.listwidget.addItems(entries)
-#
-# self.gridLayout.addWidget(self.listwidget, 1, 0, 1, 2)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     myWindow = MyWindow()
     myWindow.show()
     app.exec()
-    #sys.exit(app.exec_())
+    # sys.exit(app.exec_())
