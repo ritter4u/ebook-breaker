@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b4de2e3-108c-4431-851e-d9e26531b230" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ebook-breaker.ui.autosave" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ebook-breaker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ebook-breaker.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ebook-breaker.ui" beforeDir="false" afterPath="$PROJECT_DIR$/src/ebook-breaker.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
