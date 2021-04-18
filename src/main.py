@@ -1,6 +1,7 @@
 # import sys, os
 # import zlib
 # from Crypto.Cipher import AES
+
 import sys
 from os import listdir
 from os.path import isfile, join
@@ -12,7 +13,7 @@ from PyQt6.QtWidgets import *
 from PyQt6 import uic
 
 Ui_MainWindow, QtBaseClass = uic.loadUiType("ebook-breaker.ui")
-
+#UI_Progress, QtBaseClass = uic.loadUiType("progress.ui")
 
 class MyWindow(QMainWindow, Ui_MainWindow):
     docpath = ""
@@ -21,8 +22,9 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         super().__init__()
         QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
+        #UI_Progress.__init__(self)
         self.setupUi(self)
-        #self.pushButton.clicked.connect(self.convertDrm)
+        self.pushButton.clicked.connect(self.convertDrm)
         self.pushButton_2.clicked.connect(self.endApp)
         self.pushButton_3.clicked.connect(self.getPath)
         self.pushButton_4.clicked.connect(self.clearList)
@@ -33,7 +35,15 @@ class MyWindow(QMainWindow, Ui_MainWindow):
 
     def endApp(self):
         sys.exit()
-    #def convertDrm(self):
+    def convertDrm(self):
+        progress=QProgressDialog(self)
+        progress.autoClose()
+        progress.open()
+        #변환 로직 추가
+        #DRM에 따라 변환 변경필요
+
+        progress.close()
+
     def getPath(self):
         # fname = QFileDialog.getOpenFileName(self)
         # fname = QFileDialog.getOpenFileNames(self)
