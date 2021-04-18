@@ -22,8 +22,18 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
+        #self.pushButton.clicked.connect(self.convertDrm)
+        self.pushButton_2.clicked.connect(self.endApp)
         self.pushButton_3.clicked.connect(self.getPath)
+        self.pushButton_4.clicked.connect(self.clearList)
 
+    def clearList(self):
+        self.listWidget.clear()
+        self.listWidget_2.clear()
+
+    def endApp(self):
+        sys.exit()
+    #def convertDrm(self):
     def getPath(self):
         # fname = QFileDialog.getOpenFileName(self)
         # fname = QFileDialog.getOpenFileNames(self)
@@ -32,15 +42,16 @@ class MyWindow(QMainWindow, Ui_MainWindow):
         f = []
         d1 = []
         d2 = []
-        self.docpath = mypath
-        for (dirpath, dirnames, filenames) in walk(mypath):
-            f.extend(filenames)
-            # d1.extend(dirpath)
-            # d2.extend(dirnames) #하위폴더 탐색 필요
-            # self.listWidget.addItem("aaa")
+        if self.docpath!=mypath:
+            self.docpath = mypath
+            for (dirpath, dirnames, filenames) in walk(mypath):
+                f.extend(filenames)
+                # d1.extend(dirpath)
+                # d2.extend(dirnames) #하위폴더 탐색 필요
+                # self.listWidget.addItem("aaa")
 
-        for (filename) in f:
-            self.listWidget.addItem(filename)
+            for (filename) in f:
+                self.listWidget.addItem(filename)
 
 
 if __name__ == "__main__":
@@ -48,4 +59,4 @@ if __name__ == "__main__":
     myWindow = MyWindow()
     myWindow.show()
     app.exec()
-    # sys.exit(app.exec_())
+    #sys.exit(app.exec_())
